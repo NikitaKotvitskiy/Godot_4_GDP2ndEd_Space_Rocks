@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://uw325ov27g5l"]
 
-[ext_resource type="Script" path="res://Bullet.gd" id="1_oaef0"]
-[ext_resource type="Texture2D" uid="uid://2tm2eha3b4ve" path="res://laser.png" id="2_rdqhf"]
+[ext_resource type="Script" path="res://Player/Bullet/Bullet.gd" id="1_dib06"]
+[ext_resource type="Texture2D" uid="uid://2tm2eha3b4ve" path="res://Player/Bullet/laser.png" id="2_rtxx7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8mra6"]
 radius = 2.0
 height = 28.0
 
 [node name="Bullet" type="Area2D"]
-script = ExtResource("1_oaef0")
+script = ExtResource("1_dib06")
 speed = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_rdqhf")
+texture = ExtResource("2_rtxx7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)

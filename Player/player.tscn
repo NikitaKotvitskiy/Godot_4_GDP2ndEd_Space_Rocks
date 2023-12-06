@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://puk5vy8yd52n" path="res://Player/player_ship_icon.png" id="1_biw6t"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_hqb6y"]
-[ext_resource type="PackedScene" uid="uid://uw325ov27g5l" path="res://bullet.tscn" id="2_bae4l"]
+[ext_resource type="PackedScene" uid="uid://uw325ov27g5l" path="res://Player/Bullet/bullet.tscn" id="2_nu24p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ow3de"]
 radius = 15.0333
@@ -12,7 +12,7 @@ linear_damp = 1.0
 angular_damp = 5.0
 script = ExtResource("1_hqb6y")
 spin_power = 2000
-bullet_scene = ExtResource("2_bae4l")
+bullet_scene = ExtResource("2_nu24p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708

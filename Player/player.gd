@@ -14,7 +14,12 @@ var can_shoot = true
 enum {INIT, ALIVE, INVULNERABLE, DEAD}
 var state = INIT
 
+var average_radius
+
 func _ready():
+	var player_width = int($Sprite2D.texture.get_size().x / 2 * $Sprite2D.scale.x)
+	var player_height = int($Sprite2D.texture.get_size().y / 2 * $Sprite2D.scale.y)  
+	average_radius = (player_width + player_height) / 2 
 	$GunCooldown.wait_time = fire_rate
 	screensize = get_viewport_rect().size
 	change_state(ALIVE)
@@ -28,8 +33,8 @@ func _physics_process(delta):
 
 func _integrate_forces(physics_state):
 	var xform = physics_state.transform
-	xform.origin.x = wrapf(xform.origin.x, 0, screensize.x)
-	xform.origin.y = wrapf(xform.origin.y, 0, screensize.y)
+	xform.origin.x = wrapf(xform.origin.x, 0 - average_radius, screensize.x + average_radius)
+	xform.origin.y = wrapf(xform.origin.y, 0 - average_radius, screensize.y + average_radius)
 	physics_state.transform = xform
 	
 func get_input():
