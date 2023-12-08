@@ -65,9 +65,11 @@ func change_state(new_state):
 		ALIVE:
 			$CollisionShape2D.set_deferred("disabled", false)
 			$Sprite2D.modulate.a = 1.0
+			collision_mask = 0b00000010
 		INVULNERABLE:
-			$CollisionShape2D.set_deferred("disabled", true)
+			$CollisionShape2D.set_deferred("disabled", false)
 			$Sprite2D.modulate.a = 0.5
+			collision_mask = 0b00000000
 			$InvulnerabilityTimer.start()
 		DEAD:
 			$CollisionShape2D.set_deferred("disabled", true)
