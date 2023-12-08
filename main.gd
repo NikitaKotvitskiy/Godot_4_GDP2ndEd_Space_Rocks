@@ -30,6 +30,8 @@ func spawn_rock(size, pos=null, vel=null):
 	r.exploded.connect(self._on_rock_exploded)
 
 func _on_rock_exploded(size, radius, pos, vel):
+	score += 1
+	$HUD.update_score(score)
 	if size <= 1:
 		return
 	for offset in [-1, 1]:
@@ -57,3 +59,16 @@ func new_level():
 func game_over():
 	playing = false
 	$HUD.game_over()
+
+func _input(event):
+	if event.is_action_pressed("pause"):
+		if not playing:
+			return
+		get_tree().paused = not get_tree().paused
+		var message = $HUD/VBoxContainer/Message
+		if get_tree().paused:
+			message.text = "Paused"
+			message.show()
+		else:
+			message.text = ""
+			message.hide()

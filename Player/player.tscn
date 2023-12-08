@@ -9,6 +9,7 @@
 radius = 15.0333
 
 [node name="Player" type="RigidBody2D"]
+collision_mask = 0
 max_contacts_reported = 1
 contact_monitor = true
 linear_damp = 1.0
